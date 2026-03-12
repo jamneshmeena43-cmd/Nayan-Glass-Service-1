@@ -1,0 +1,75 @@
+let requests = []
+
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active")
+})
+
+document.getElementById(page).classList.add("active")
+
+}
+
+document.getElementById("requestForm").addEventListener("submit",function(e){
+
+e.preventDefault()
+
+let order = {
+id:"ORD"+Math.floor(Math.random()*10000),
+name:document.getElementById("name").value,
+mobile:document.getElementById("mobile").value,
+address:document.getElementById("address").value,
+size:document.getElementById("size").value,
+type:document.getElementById("type").value,
+status:"Pending"
+}
+
+requests.push(order)
+
+alert("Request Submitted!")
+
+showPage("home")
+
+})
+
+function trackOrder(){
+
+let mobile=document.getElementById("trackMobile").value
+
+let result=requests.filter(o=>o.mobile==mobile)
+
+let container=document.getElementById("orderResult")
+
+container.innerHTML=""
+
+if(result.length==0){
+
+container.innerHTML="<p>No order found</p>"
+
+return
+}
+
+result.forEach(o=>{
+
+container.innerHTML+=`
+<div class="card">
+<b>ID:</b> ${o.id}<br>
+<b>Status:</b> ${o.status}<br>
+<b>Type:</b> ${o.type}<br>
+<b>Size:</b> ${o.size}
+</div>
+`
+
+})
+
+}
+
+document.getElementById("vendorForm").addEventListener("submit",function(e){
+
+e.preventDefault()
+
+alert("Vendor Application Received!")
+
+showPage("home")
+
+})

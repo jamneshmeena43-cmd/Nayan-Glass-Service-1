@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nayan Glass Service</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+  <h2>Nayan Glass Service</h2>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('request')">Request Service</button>
+    <button onclick="showPage('track')">Track Order</button>
+    <button onclick="showPage('vendor')">Partner</button>
+    <button onclick="showPage('admin')">Admin</button>
+  </nav>
+</header>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+  <h1>Fast & Trusted Glass Service</h1>
+  <p>Window, door and custom glass work at your doorstep.</p>
+  <button onclick="showPage('request')" class="btn">Request Service</button>
+</section>
+
+<!-- REQUEST PAGE -->
+<section id="request" class="page">
+  <h2>Request Glass Service</h2>
+
+  <form id="requestForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="mobile" placeholder="Mobile Number" required>
+    <input type="text" id="address" placeholder="Address" required>
+    <input type="text" id="size" placeholder="Glass Size">
+    
+    <select id="type">
+      <option>Clear Glass</option>
+      <option>Toughened Glass</option>
+      <option>Mirror</option>
+    </select>
+
+    <button type="submit" class="btn">Submit Request</button>
+  </form>
+</section>
+
+<!-- TRACK ORDER -->
+<section id="track" class="page">
+  <h2>Track Your Order</h2>
+  <input type="text" id="trackMobile" placeholder="Enter Mobile">
+  <button onclick="trackOrder()">Search</button>
+
+  <div id="orderResult"></div>
+</section>
+
+<!-- VENDOR PAGE -->
+<section id="vendor" class="page">
+  <h2>Become a Partner</h2>
+
+  <form id="vendorForm">
+    <input type="text" id="shopName" placeholder="Shop Name">
+    <input type="text" id="owner" placeholder="Owner Name">
+    <input type="text" id="vendorMobile" placeholder="Mobile">
+    <input type="text" id="location" placeholder="City">
+
+    <button type="submit" class="btn">Register</button>
+  </form>
+</section>
+
+<!-- ADMIN DASHBOARD -->
+<section id="admin" class="page">
+  <h2>Admin Dashboard</h2>
+  <div id="orders"></div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
